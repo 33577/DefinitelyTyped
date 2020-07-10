@@ -18,6 +18,7 @@
     },
     "files": [
         "index.d.ts",
-        "yup-tests.ts"
+        "yup-tests.ts",
+        "myTest.ts"
     ]
 }
