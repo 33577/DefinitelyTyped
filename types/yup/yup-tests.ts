@@ -993,3 +993,16 @@ yup.addMethod(
     },
 );
 yup.string().chineseMobilePhoneNumber('please input a Chinese mobile phone number');
+
+const mixedSchema = yup.mixed<string>().required();
+const arrayOfMixedSchema = yup.array().of(
+    mixedSchema
+  ).required();
+
+const arrayOfMixedSchemaExample: yup.InferType<typeof arrayOfMixedSchema> = [0, 1]; // Expected an error on this line, but found none.
+
+const arrayOfStringSchema = yup.array().of(
+    yup.string().required()
+  ).required();
+// $ExpectError
+const arrayOfStringSchemaExample: yup.InferType<typeof arrayOfStringSchema> = [0, 1];
